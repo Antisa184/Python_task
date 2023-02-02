@@ -1,3 +1,12 @@
+#Description
+This is a small project that allows me to load excel sheets into
+a postgres database. Since this was made as a result of a task for my
+interview. This version is limited in abilities, but can be updated easily.
+
+Some things are currently hardcoded. 
+-It will read only the first sheet of the excel file
+-It uses a prewritten header for the sheet and columns when creating new table
+
 #Requirements
 Have Python3 installed
 Have Postgresql installed (I used version 15.1.)
@@ -9,4 +18,6 @@ Open 'database.ini' and edit the password to whatever you set for your default
 postgres database.
 
 Put xlsx file inside the root folder of the project
-Start main.py with 'py main.py'
+Start main.py with 'py main.py' and follow the instructions!
+
+Enjoy
