@@ -47,13 +47,14 @@ def connect(sheet):
     # load rows
         for i in range(len(sheet.index)-1):
             row=sheet.iloc[i]
-            print(row[0])
             sql = """ INSERT INTO foreo (store_no, store, ty_units, ly_units, tw_sales, lw_sales, lw_var, ly_sales, ly_var, ytd_sales, lytd_sales, lytd_var) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
             data=(str(row[0]), str(row[1]), int(row[2]), int(row[3]), float(row[4]), float(row[5]), float(row[6]), float(row[7]), float(row[8]), float(row[9]), float(row[10]), float(row[11]))
-            cur.execute(sql,data)
-            #id = cur.fetchone()[0]
-            print(data)
-            conn.commit()
+            try:
+                cur.execute(sql,data)
+                print("Inserted: ",data)
+                conn.commit()
+            except (Exception, psycopg2.DatabaseError) as error:
+                print(error)
 	# close the communication with the PostgreSQL
         cur.close()
 

@@ -1,7 +1,7 @@
 #!/usr/bin/python
-import connect
+from connect import connect
 import glob
-import readFile
+from readFile import readFile
 
 
 def chooseFile():
@@ -23,6 +23,6 @@ if __name__ == '__main__':
     fileName=chooseFile()
 
     print("Reading the first sheet with pre-determined columns (for demo simplicity)")
-    sheet = readFile.readFile(fileName)
+    sheet = readFile(fileName)
         
     connect(sheet)
